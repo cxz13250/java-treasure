@@ -2,7 +2,7 @@ package leetcode;
 
 /**
  * @Author ROKG
- * @Description
+ * @Description 给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。
  * @Date: Created in 下午8:29 2018/4/18
  * @Modified By:
  */

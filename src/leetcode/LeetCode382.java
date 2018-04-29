@@ -4,7 +4,7 @@ import java.util.Random;
 
 /**
  * @Author ROKG
- * @Description
+ * @Description 给定一个单链表，随机选择链表的一个节点，并返回相应的节点值。保证每个节点被选的概率一样。
  * @Date: Created in 下午10:47 2018/4/18
  * @Modified By:
  */

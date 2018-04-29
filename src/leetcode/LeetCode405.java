@@ -2,7 +2,7 @@ package leetcode;
 
 /**
  * @Author ROKG
- * @Description
+ * @Description 给定一个整数，编写一个算法将这个数转换为十六进制数。对于负整数，我们通常使用 补码运算 方法。
  * @Date: Created in 下午12:35 2018/4/19
  * @Modified By:
  */

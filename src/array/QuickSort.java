@@ -11,7 +11,7 @@ public class QuickSort {
     public void quickSort(int a[],int low,int high) {
         if(low<high){
             int temp=getMiddle(a,low,high);
-            quickSort(a,0,temp-1);
+            quickSort(a,low,temp-1);
             quickSort(a,temp+1,high);
         }
     }
@@ -19,11 +19,11 @@ public class QuickSort {
     public int getMiddle(int a[],int low,int high) {
         int key=a[low];
         while (low<high){
-            if(low<high&&a[high]>=key){
+            while (low<high&&a[high]>=key){
                 high--;
             }
             a[low]=a[high];
-            if(low<high&&a[low]<=key){
+            while (low<high&&a[low]<=key){
                 low++;
             }
             a[high]=a[low];
