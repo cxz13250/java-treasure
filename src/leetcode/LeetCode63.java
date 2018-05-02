@@ -6,7 +6,7 @@ package leetcode;
  * 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。
  * 现在考虑网格中有障碍物。那么从左上角到右下角将会有多少条不同的路径？
  * @Date: Created in 上午11:39 2018/4/28
- * @Modified By:
+ * @Modified By: *
  */
 public class LeetCode63 {
 

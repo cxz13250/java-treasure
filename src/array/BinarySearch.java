@@ -54,7 +54,7 @@ public class BinarySearch {
     public static void main(String[] args) {
         BinarySearch s=new BinarySearch();
         int arr[]={1,2,3,4,5,6,7,8,9};
-        System.out.println("递归二分查找"+s.binarySearch(arr,7,0,arr.length));
-        System.out.println("非递归二分查找"+s.binarySearch(arr,7));
+        System.out.println("递归二分查找7的位置："+s.binarySearch(arr,7,0,arr.length));
+        System.out.println("非递归二分查找7的位置："+s.binarySearch(arr,7));
     }
 }
