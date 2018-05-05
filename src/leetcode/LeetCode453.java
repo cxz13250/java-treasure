@@ -9,27 +9,17 @@ package leetcode;
 public class LeetCode453 {
 
     public static int minMoves(int[] nums) {
-        if(nums.length==1){
-            return 0;
-        }
-        long sum=nums[0];
-        long max=nums[0];
+        int min=nums[0];
         for(int i=1;i<nums.length;i++){
-            sum+=nums[i];
-            max=Math.max(nums[i],max);
+            min=Math.min(min,nums[i]);
         }
-        long total=max*nums.length;
-        long temp=total-sum;
-        long step=nums.length-1;
-        if(temp%step==0){
-            return (int)((total-sum)/step);
-        }else{
-            return (int)((temp+nums.length)/step);
+        int sum=0;
+        for(int i=0;i<nums.length;i++){
+            sum+=(nums[i]-min);
         }
+        return sum;
     }
 
     public static void main(String[] args) {
-        int nums[]={-2147483648,-1};
-        System.out.println(minMoves(nums));
     }
 }

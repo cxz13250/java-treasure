@@ -1,8 +1,6 @@
 package tree;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * @Author ROKG
@@ -17,7 +15,7 @@ public class BinaryTree {
     TreeNode nodes[];
     List<Integer> stack=new ArrayList<>();
 
-    private class TreeNode{
+    public class TreeNode{
         Integer data;
         TreeNode left;
         TreeNode right;
@@ -30,6 +28,10 @@ public class BinaryTree {
         public void setRight(TreeNode node){
             right=node;
         }
+    }
+
+    public BinaryTree(){
+
     }
 
     BinaryTree(int[] arr){
@@ -99,6 +101,29 @@ public class BinaryTree {
         }
     }
 
+    /**
+     * 广度优先遍历
+     * @param node
+     */
+    public void BFS(TreeNode node){
+        Queue<TreeNode> queue=new LinkedList<>();
+        queue.offer(node);
+        while (!queue.isEmpty()){
+            TreeNode temp =queue.poll();
+            System.out.print(temp.data+" ");
+            if(temp.left!=null){
+                queue.offer(temp.left);
+            }
+            if(temp.right!=null){
+                queue.offer(temp.right);
+            }
+        }
+    }
+
+    /**
+     * 打印从根节点到所有叶子节点的路径
+     * @param node
+     */
     public void findAllPath(TreeNode node){
         if(node==null){
             return;
