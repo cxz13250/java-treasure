@@ -4,7 +4,7 @@ import java.util.HashSet;
 
 /**
  * @Author ROKG
- * @Description
+ * @Description 找出两个链表共同部分的入口
  * @Date: Created in 下午8:37 2018/5/3
  * @Modified By:
  */

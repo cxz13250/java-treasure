@@ -1,7 +1,6 @@
 package leetcode;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -18,14 +17,16 @@ public class LeetCode448 {
         if(nums.length==0){
             return new ArrayList<>();
         }
-        Arrays.sort(nums);
         List<Integer> list=new ArrayList<>();
-        for (int i=1;i<=nums[nums.length-1];i++){
-            list.add(nums[i]);
+        for (int i=0;i<nums.length;i++){
+            int temp=Math.abs(nums[i])-1;
+            if(nums[temp]>0){
+                nums[temp]=-nums[temp];
+            }
         }
         for (int i=0;i<nums.length;i++){
-            if (list.contains(nums[i])){
-                list.remove(Integer.valueOf(nums[i]));
+            if(nums[i]>0){
+                list.add(i+1);
             }
         }
         return list;
