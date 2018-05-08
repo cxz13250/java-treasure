@@ -1,6 +1,6 @@
-package graph;
+package dataStructure.graph;
 
-import array.Base;
+import dataStructure.array.Base;
 
 import java.util.LinkedList;
 import java.util.Queue;

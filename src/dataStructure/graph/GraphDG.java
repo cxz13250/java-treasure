@@ -1,4 +1,4 @@
-package graph;
+package dataStructure.graph;
 
 /**
  * @Author ROKG

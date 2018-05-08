@@ -1,6 +1,6 @@
 package employee;
 
-import array.Base;
+import dataStructure.array.Base;
 
 import java.util.ArrayList;
 import java.util.Collections;

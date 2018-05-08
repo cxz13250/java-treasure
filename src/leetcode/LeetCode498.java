@@ -1,6 +1,6 @@
 package leetcode;
 
-import array.Base;
+import dataStructure.array.Base;
 
 /**
  * @Author ROKG
