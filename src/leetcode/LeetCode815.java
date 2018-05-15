@@ -8,7 +8,7 @@ import java.util.*;
  * 表示第一辆 (下标为0) 公交车会一直按照 1->5->7->1->5->7->1->... 的车站路线行驶。假设我们从 S 车站开始（初始时不在公交车上），要去往 T 站。
  * 期间仅可乘坐公交车，求出最少乘坐的公交车数量。
  * @Date: Created in 下午11:50 2018/4/19
- * @Modified By:
+ * @Modified By: *
  */
 public class LeetCode815 {
 
