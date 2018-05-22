@@ -4,9 +4,9 @@ import dataStructure.array.Base;
 
 /**
  * @Author ROKG
- * @Description
+ * @Description 给定一个含有 M x N 个元素的矩阵（M行，N列），请以对角线遍历的顺序返回这个矩阵中的所有元素，对角线遍历如下图所示
  * @Date: Created in 上午12:37 2018/5/1
- * @Modified By:
+ * @Modified By: *
  */
 public class LeetCode498 {
 

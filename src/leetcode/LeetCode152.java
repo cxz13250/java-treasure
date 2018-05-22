@@ -25,7 +25,7 @@ public class LeetCode152 {
         return max;
     }
 
-    //O(n^2)
+    //O(n)
     public static int maxProduct2(int[] nums) {
         int min[]=new int[nums.length];
         int max[]=new int[nums.length];

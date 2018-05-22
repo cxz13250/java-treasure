@@ -20,7 +20,6 @@ public class MyVolatile {
         executorService.submit(m);
         executorService.submit(n);
         System.out.println(t.test);
-        SimpleDateFormat simpleDateFormat=new SimpleDateFormat();
     }
 }
 class Temp{

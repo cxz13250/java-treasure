@@ -4,7 +4,7 @@ package dataStructure.array;
  * @Author ROKG
  * @Description 快速排序
  * @Date: Created in 下午3:52 2018/4/1
- * @Modified By:
+ * @Modified By: O(nlog2n)
  */
 public class QuickSort {
 
@@ -37,5 +37,6 @@ public class QuickSort {
         int[] a={123,23,22,45,34,89,35,72};
         s.quickSort(a,0,a.length-1);
         Base.print(a);
+        System.out.println();
     }
 }
