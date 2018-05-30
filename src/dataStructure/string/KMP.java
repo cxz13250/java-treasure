@@ -1,4 +1,4 @@
-package employee;
+package dataStructure.string;
 
 /**
  * @Author ROKG

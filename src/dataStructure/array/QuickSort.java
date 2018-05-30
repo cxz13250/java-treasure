@@ -34,7 +34,7 @@ public class QuickSort {
 
     public static void main(String[] args) {
         QuickSort s=new QuickSort();
-        int[] a={123,23,22,45,34,89,35,72};
+        int[] a={2,4,6,1,1};
         s.quickSort(a,0,a.length-1);
         Base.print(a);
         System.out.println();

@@ -1,6 +1,4 @@
-package multiThreading;
-
-import java.util.UUID;
+package employee;
 
 /**
  * @Author ROKG
@@ -17,8 +15,6 @@ public class Test {
         x--;
         myMethod( );
         System.out.println(x+y+ ++x);
-        System.out.println("\101");
-        System.out.println(UUID.randomUUID().toString());
     }
     public static void myMethod( ){
         y=x++ + ++x;

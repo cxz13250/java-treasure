@@ -1,9 +1,6 @@
 package leetcode;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @Author ROKG
@@ -48,5 +45,34 @@ public class LeetCode116 {
         }
         check(node.left,height+1);
         check(node.right,height+1);
+    }
+
+    public void connect2(TreeLinkNode root) {
+        if (root == null){
+            return;
+        }
+        Queue<TreeLinkNode> resolvingNodes = new LinkedList<TreeLinkNode>();
+        resolvingNodes.offer(root);
+        while (!resolvingNodes.isEmpty()){
+            List<TreeLinkNode> nodesCurLevel = new ArrayList<TreeLinkNode>();
+            while (!resolvingNodes.isEmpty()){
+                nodesCurLevel.add(resolvingNodes.poll());
+            }
+            for (int nodeIdx = 0 ; nodeIdx < nodesCurLevel.size() ; nodeIdx ++){
+                if (nodeIdx != nodesCurLevel.size() - 1){
+                    nodesCurLevel.get(nodeIdx).next =
+                            nodesCurLevel.get(nodeIdx + 1);
+                }
+                else{
+                    nodesCurLevel.get(nodeIdx).next = null;
+                }
+                if (nodesCurLevel.get(nodeIdx).left != null){
+                    resolvingNodes.offer(nodesCurLevel.get(nodeIdx).left);
+                }
+                if (nodesCurLevel.get(nodeIdx).right != null){
+                    resolvingNodes.offer(nodesCurLevel.get(nodeIdx).right);
+                }
+            }
+        }
     }
 }
