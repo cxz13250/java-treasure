@@ -12,15 +12,35 @@ import java.util.List;
 public class LeetCode204 {
 
     public int countPrimes(int n) {
-        if (n<2){
-            return 0;
+        int[] primes=new int[n+1];
+        for (int i=2;i<n;i++){
+            primes[i]=1;
         }
-        if (n==2){
-            return 1;
+        for (int i=2;i*i<=n;i++){
+            if (primes[i]==0){
+                continue;
+            }
+            for (int j=i*i;j<n;j+=i){
+                primes[j]=0;
+            }
+        }
+        int count=0;
+        for (int i=2;i<n;i++){
+            if (primes[i]==1){
+                count++;
+            }
+        }
+        return count;
+    }
+
+
+    public int countPrimes1(int n) {
+        if (n<=2){
+            return 0;
         }
         List<Integer> list=new ArrayList<>();
         list.add(2);
-        for (int i=3;i<=n;i++){
+        for (int i=3;i<n;i++){
             if (check(i,list)){
                 list.add(i);
             }
@@ -50,17 +70,15 @@ public class LeetCode204 {
     private boolean isPrime(int num) {
         if (num <= 1)
             return false;
-        // Loop's ending condition is i * i <= num instead of i <= sqrt(num)
-        // to avoid repeatedly calling an expensive function sqrt().
         for (int i = 2; i * i <= num; i++) {
             if (num % i == 0)
                 return false;
         }
         return true;
     }
-    static boolean in;
 
     public static void main(String[] args) {
-
+        LeetCode204 l=new LeetCode204();
+        System.out.println(l.countPrimes(10));
     }
 }
