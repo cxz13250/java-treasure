@@ -12,6 +12,8 @@ public class MyThread extends Thread{
 
     private CountDownLatch countDownLatch;
 
+    MyThread() {}
+
     MyThread(CountDownLatch countDownLatch){
         this.countDownLatch=countDownLatch;
     }

@@ -34,7 +34,6 @@ public class LeetCode405 {
 
     public static void main(String[] args) {
         System.out.println(toHex(26));
-        System.out.println(toHex(-1));
-
+        System.out.println(toHex(-26));
     }
 }
