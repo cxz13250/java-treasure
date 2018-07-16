@@ -2,7 +2,10 @@ package leetcode;
 
 /**
  * @Author ROKG
- * @Description
+ * @Description 给定一个字符串 (s) 和一个字符模式 (p)。实现支持 '.' 和 '*' 的正则表达式匹配。
+ * '.' 匹配任意单个字符。
+ * '*' 匹配零个或多个前面的元素。
+ * 匹配应该覆盖整个字符串 (s) ，而不是部分字符串。
  * @Date: Created in 下午5:10 2018/4/15
  * @Modified By:
  */
