@@ -6,7 +6,7 @@ package leetcode;
  * 第 i 条边连接节点 edges[i][0] 和 edges[i][1] 。
  * 返回一个表示节点 i 与其他所有节点距离之和的列表 ans。
  * @Date: Created in 下午4:46 2018/6/25
- * @Modified By:
+ * @Modified By: *
  */
 public class LeetCode834 {
 
@@ -19,5 +19,9 @@ public class LeetCode834 {
             dist[temp[1]][temp[0]]=1;
         }
         return result;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(1^2);
     }
 }
