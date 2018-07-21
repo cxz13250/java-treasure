@@ -37,6 +37,9 @@ public class LeetCode373 {
 
     //优化复杂度
     public List<int[]> kSmallestPairs2(int[] nums1, int[] nums2, int k) {
+        if (nums1.length==0 || nums2.length==0){
+            return new ArrayList<>();
+        }
         List<int[]> result=new ArrayList<>();
         PriorityQueue<int[]> queue=new PriorityQueue<>(new Comparator<int[]>() {
             @Override
