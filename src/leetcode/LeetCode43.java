@@ -9,30 +9,24 @@ package leetcode;
 public class LeetCode43 {
 
     public String multiply(String num1, String num2) {
-        return int2string(string2int(num1)*string2int(num2));
-    }
-
-    public long string2int(String str){
-        long result=0;
-        for (int i=0;i<str.length();i++){
-            result=result*10+str.charAt(i)-'0';
+        StringBuffer sb=new StringBuffer();
+        int m=num1.length();
+        int n=num2.length();
+        int[] arr=new int[m+n];
+        for (int i=m-1;i>=0;i--){
+            for (int j=n-1;j>=0;j--){
+                int index1=i+j;
+                int index2=i+j+1;
+                int sum=(num1.charAt(i)-'0')+(num2.charAt(j)-'0')+ arr[index2];
+                arr[index1]+=sum/10;
+                arr[index2]=sum%10;
+            }
         }
-        return result;
-    }
-
-    public String int2string(long i){
-        if (i==0){
-            return "0";
+        for (int i:arr){
+            if (sb.length()!=0 || i!=0) {
+                sb.append(i);
+            }
         }
-        StringBuilder sb=new StringBuilder();
-        while (i!=0){
-            sb.insert(0,i%10);
-            i/=10;
-        }
-        return sb.toString();
-    }
-
-    public static void main(String[] args)throws Exception {
-
+        return sb.length()>0?sb.toString():"0";
     }
 }
