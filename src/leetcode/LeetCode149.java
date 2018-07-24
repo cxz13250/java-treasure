@@ -11,7 +11,7 @@ import java.util.Map;
  */
 public class LeetCode149 {
 
-    class Point {
+    static class Point {
         int x;
         int y;
         Point() { x = 0; y = 0; }
@@ -39,7 +39,7 @@ public class LeetCode149 {
                 }else if (p.x==q.x){
                     same.put(Double.MAX_VALUE,same.getOrDefault(Double.MAX_VALUE,0)+1);
                 }else {
-                    double k=(p.y-q.y)*1.0/(p.x-q.x)*1.0;
+                    double k=(p.y-q.y)*1.0/(p.x-q.x);
                     same.put(k,same.getOrDefault(k,0)+1);
                 }
             }
@@ -54,6 +54,11 @@ public class LeetCode149 {
     }
 
     public static void main(String[] args) {
+        Point[] points=new Point[3];
+        points[0]=new Point(0,0);
+        points[1]=new Point(94911151,94911150);
+        points[2]=new Point(94911152,94911151);
+        System.out.println(maxPoints(points));
     }
 }
 
