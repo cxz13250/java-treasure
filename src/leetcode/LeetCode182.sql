@@ -1,0 +1,1 @@
+SELECT DISTINCT(p1.Email) FROM Person p1 INNER JOIN Person p2 ON p1.id <> p2.id AND p1.Email = p2.Email;

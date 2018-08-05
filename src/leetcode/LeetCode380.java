@@ -43,7 +43,6 @@ public class LeetCode380 {
         int temp=position.get(val);
         if (temp!=lenth-1){
             position.put(nums[lenth-1],temp);
-            int swp=nums[temp];
             nums[temp]=nums[lenth-1];
             nums[lenth-1]=temp;
         }
