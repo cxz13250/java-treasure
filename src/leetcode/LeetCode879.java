@@ -1,5 +1,9 @@
 package leetcode;
 
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicIntegerArray;
+import java.util.concurrent.atomic.AtomicReference;
+
 /**
  * @Author ROKG
  * @Description 帮派里有 G 名成员，他们可能犯下各种各样的罪行。
@@ -55,5 +59,8 @@ public class LeetCode879 {
             result = (result + res[P][i])%M;
         }
         return result;
+    }
+
+    public static void main(String[] args) {
     }
 }
