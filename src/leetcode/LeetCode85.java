@@ -10,7 +10,7 @@ import java.util.Arrays;
  */
 public class LeetCode85 {
 
-    // 使用三个数组分别记录，当前元素所在的矩阵左边界、右边界、高度。
+    // 使用三个数组分别记录，当前元素所在的矩形左边界、右边界、高度。
     public int maximalRectangle(char[][] matrix) {
         if (matrix.length==0 || matrix[0].length==0){
             return 0;
