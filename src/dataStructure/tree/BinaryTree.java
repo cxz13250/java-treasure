@@ -13,7 +13,7 @@ public class BinaryTree {
     int size;
     TreeNode root;
     TreeNode nodes[];
-    List<Integer> stack=new ArrayList<>();
+    List<Integer> list=new ArrayList<>();
 
     public class TreeNode{
         Integer data;
@@ -102,6 +102,36 @@ public class BinaryTree {
     }
 
     /**
+     * 非递归后序遍历
+     */
+    public void postOrder(){
+        if (root==null){
+            return;
+        }
+        Stack<TreeNode> stack=new Stack<>();
+        TreeNode cur=root;
+        TreeNode last=null;
+        while (cur!=null){
+                stack.push(cur);
+                cur=cur.left;
+        }
+        while (!stack.isEmpty()){
+            cur=stack.pop();
+            if (cur.right!=null&&cur.right!=last){
+                stack.push(cur);
+                cur=cur.right;
+                while (cur!=null){
+                    stack.push(cur);
+                    cur=cur.left;
+                }
+            }else {
+                System.out.println(cur.data);
+                last=cur;
+            }
+        }
+    }
+
+    /**
      * 广度优先遍历
      * @param node
      */
@@ -128,7 +158,7 @@ public class BinaryTree {
         if(node==null){
             return;
         }
-        stack.add(node.data);
+        list.add(node.data);
         if(node.left==null&&node.right==null){
             printPath();
         }
@@ -138,11 +168,11 @@ public class BinaryTree {
         if(node.right!=null){
             findAllPath(node.right);
         }
-        stack.remove(node.data);
+        list.remove(node.data);
     }
 
     public void printPath(){
-        for(Integer i:stack){
+        for(Integer i:list){
             System.out.print(i+" ");
         }
         System.out.println();
@@ -163,6 +193,8 @@ public class BinaryTree {
         bt.postOrder(bt.root);
         System.out.println("非递归先序遍历:");
         bt.preOrder();
+        System.out.println("非递归后序遍历:");
+        bt.postOrder();
         System.out.println("输出从根节点到所有叶子节点的路径:");
         bt.findAllPath(bt.root);
     }

@@ -9,7 +9,7 @@ import java.util.Queue;
  * @Author ROKG
  * @Description 给定一个N叉树，返回其节点值的层序遍历。 (即从左到右，逐层遍历)。
  * @Date: Created in 上午12:10 2018/7/19
- * @Modified By:
+ * @Modified By: *
  */
 public class LeetCode429 {
 
