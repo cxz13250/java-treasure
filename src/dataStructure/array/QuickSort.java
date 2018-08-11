@@ -32,10 +32,31 @@ public class QuickSort {
         return low;
     }
 
+    public void quickSort2(int a[],int l,int r){
+        if (l>r){
+            return;
+        }
+        int temp=a[l];
+        int i=l,j=r;
+        while (i<j){
+            while (i<j&&a[j]>=temp){
+                j--;
+            }
+            a[i]=a[j];
+            while (i<j&&a[i]<=temp){
+                i++;
+            }
+            a[j]=a[i];
+        }
+        a[i]=temp;
+        quickSort2(a,l,i-1);
+        quickSort2(a,i+1,r);
+    }
+
     public static void main(String[] args) {
         QuickSort s=new QuickSort();
         int[] a={2,4,6,1,1};
-        s.quickSort(a,0,a.length-1);
+        s.quickSort2(a,0,a.length-1);
         Base.print(a);
         System.out.println();
     }
