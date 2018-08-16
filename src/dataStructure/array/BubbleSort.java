@@ -2,7 +2,7 @@ package dataStructure.array;
 
 /**
  * @Author ROKG
- * @Description 冒泡排序
+ * @Description 冒泡排序 O(n^2) 稳定
  * @Date: Created in 下午3:52 2018/4/1
  * @Modified By:
  */

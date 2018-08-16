@@ -2,7 +2,7 @@ package dataStructure.array;
 
 /**
  * @Author ROKG
- * @Description 堆排序
+ * @Description 堆排序 O(nlog2n) 不稳定
  * @Date: Created in 下午3:52 2018/4/1
  * @Modified By:
  */

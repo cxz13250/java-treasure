@@ -2,7 +2,7 @@ package dataStructure.array;
 
 /**
  * @Author ROKG
- * @Description 希尔排序
+ * @Description 希尔排序 O(n^1.3) 不稳定
  * @Date: Created in 下午3:52 2018/4/1
  * @Modified By:
  */

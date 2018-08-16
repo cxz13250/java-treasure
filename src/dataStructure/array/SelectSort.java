@@ -2,7 +2,7 @@ package dataStructure.array;
 
 /**
  * @Author ROKG
- * @Description 简单选择排序
+ * @Description 简单选择排序 O(n^2)  不稳定
  * @Date: Created in 下午3:51 2018/4/1
  * @Modified By:
  */
