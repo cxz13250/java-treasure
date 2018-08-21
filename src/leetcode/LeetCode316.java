@@ -1,37 +1,46 @@
 package leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
 
 /**
  * @Author ROKG
- * @Description 编写一段程序来查找第 n 个超级丑数。超级丑数是指其所有质因数都是长度为 k 的质数列表 primes 中的正整数。
- * @Date: Created in 下午1:32 2018/6/10
- * @Modified By:
+ * @Description 给定一个仅包含小写字母的字符串，去除字符串中重复的字母，使得每个字母只出现一次。需保证返回结果的字典序最小（要求不能打乱其他字符的相对位置）。
+ * @Date: Created in 2018/8/17
+ * @Modified By: *
  */
 public class LeetCode316 {
 
-    public static int nthSuperUglyNumber(int n, int[] primes) {
-        List<Integer> result=new ArrayList<>();
-        int len=primes.length;
-        result.add(1);
-        int cur=2;
-        int[] indexs=new int[len];
-        while (result.size()<n){
-            int min=Integer.MAX_VALUE;
-            for (int i=0;i<indexs.length;i++) {
-                while (result.get(indexs[i]) * primes[i] < cur) {
-                    indexs[i]++;
-                }
-                min = Math.min(min, result.get(indexs[i]) * primes[i]);
-            }
-            cur=min+1;
-            result.add(min);
+    // 栈的特性
+    public static String removeDuplicateLetters(String s) {
+        Map<Character, Integer> map =new HashMap<>();
+        char[] cc=s.toCharArray();
+        for (char c:cc){
+            map.put(c, map.getOrDefault(c, 0)+1);
         }
-        return result.get(n-1);
+        Stack<Character> stack=new Stack<>();
+        StringBuilder sb=new StringBuilder();
+        boolean[] visit=new boolean[128];
+        for (char c:cc){
+            map.put(c, map.get(c)-1);
+            if (visit[c]){
+                continue;
+            }
+            while (stack.size()>0&&map.get(stack.peek())>0&&c<stack.peek()){
+                visit[stack.peek()]=false;
+                stack.pop();
+            }
+            stack.push(c);
+            visit[c]=true;
+        }
+        while (!stack.isEmpty()){
+            sb.append(stack.pop());
+        }
+        return sb.reverse().toString();
     }
 
     public static void main(String[] args) {
-        System.out.println(nthSuperUglyNumber(2,new int[]{2,3,5}));
+        System.out.println(removeDuplicateLetters("bcabc"));
     }
 }
