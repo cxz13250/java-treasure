@@ -10,6 +10,7 @@ package leetcode;
  */
 public class LeetCode213 {
 
+    // 两次dp，第一次0下标偷，第二次0下标不偷
     public static int rob(int[] nums) {
         if (nums.length==0){
             return 0;
