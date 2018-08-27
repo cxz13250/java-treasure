@@ -9,51 +9,46 @@ package leetcode;
  */
 public class LeetCode327 {
 
+    // 先求出前缀和数组sum，然后进行归并排序，将sum分为两部分，使左右变为有序的
+    // 之后使用二指针法，找出左区间内sum[i]对应的区间rl~rr，其中rl为第一个sum[rl]-sum[u]>=lower的下标，rr为第一个sum[rr]-sum[i]>upper的下标。
+    // 则贡献区间数为rr-rl个
     public int countRangeSum(int[] nums, int lower, int upper) {
         long sum[]=new long[nums.length+1];
-        for (int i=1;i<=nums.length;i++){
-            sum[i]=nums[i-1]+sum[i-1];
+        for (int i=0;i<nums.length;i++){
+            sum[i+1]=nums[i]+sum[i];
         }
-        return check(sum,new long[sum.length],0,sum.length-1,lower,upper);
+        return sort(sum,0,nums.length+1,lower,upper);
     }
 
-    public int check(long sum[],long help[],int low,int high,int lower,int upper){
-        if (low>=high){
+    public int sort(long sum[], int l, int r, int lower, int upper){
+        if (r-l<=1){
             return 0;
         }
-        int mid=(high-low+1)/2+low;
-        int count=check(sum,help,low,mid-1,lower,upper) + check(sum,help,mid,high,lower,upper);
-        int start=mid,end=mid;
-        for (int i=low;i<mid;i++) {
-            while (start<=high&&sum[start]-sum[i]<lower){
-                start++;
+        int mid=(r+l)>>1;
+        long temp[]=new long[r-l];
+        int count= sort(sum,l,mid,lower,upper) + sort(sum,mid,r,lower,upper);
+        int rl=mid,rr=mid,j=mid;
+        for (int i=l,k=0;i<mid;i++) {
+            if (rl<r && sum[rl]-sum[i]<=upper){
+                while (rl<r&&sum[rl]-sum[i]<lower){
+                    rl++;
+                }
+                while (rr<r&&sum[rr]-sum[i]<=upper){
+                    rr++;
+                }
+                count+=rr-rl;
             }
-            while (end<=high&&sum[end]-sum[i]<=upper){
-                end++;
+            while (j<r&&sum[j]<sum[i]){
+                temp[k++]=sum[j++];
             }
-            count+=end-start;
+            temp[k++]=sum[i];
         }
-        merge(sum,help,low,mid,high);
+        System.arraycopy(temp, 0, sum, l, j-l);
         return count;
     }
 
-
-    public void merge(long sum[],long help[],int low,int high,int mid){
-        int left=low,right=mid,index=low;
-        while (left<mid&&right<=high){
-            if (sum[left]<=sum[right]){
-                help[index++]=sum[left++];
-            }else {
-                help[index++]=sum[right++];
-            }
-        }
-        while (left<mid){
-            help[index++]=sum[left++];
-        }
-        while (right<=high){
-            help[index++]=sum[right++];
-        }
-        System.arraycopy(help,low,sum,low,high-low+1);
+    public static void main(String[] args) {
+        LeetCode327 l=new LeetCode327();
+        System.out.println(l.countRangeSum(new int[]{-2,5,-1}, -2, 2));
     }
-
 }

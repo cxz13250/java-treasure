@@ -46,8 +46,8 @@ public class LeetCode38 {
     }
 
     public static void main(String[] args) {
-//        System.out.println(check("11"));
-//        System.out.println(check("21"));
+//        System.out.println(sort("11"));
+//        System.out.println(sort("21"));
         System.out.println(countAndSay(4));
     }
 }
