@@ -1,8 +1,6 @@
 package leetcode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -36,12 +34,12 @@ public class LeetCode15 {
                     ins.add(temp);
                     j++;
                     k--;
-                while (j<k&&nums[k]==nums[k+1]){
-                    k--;
-                }
-                while (j<k&&nums[j]==nums[j-1]){
-                    j++;
-                }
+                    while (j<k&&nums[k]==nums[k+1]){
+                        k--;
+                    }
+                    while (j<k&&nums[j]==nums[j-1]){
+                        j++;
+                    }
                 } else if (sum > 0) {
                     k--;
                 } else {
@@ -50,6 +48,40 @@ public class LeetCode15 {
             }
         }
         return ins.stream().distinct().collect(Collectors.toList());
+    }
+
+    public static List<List<Integer>> threeSum2(int[] nums) {
+        Map<Integer,Integer> map=new HashMap<>();
+        List<List<Integer>> res=new ArrayList<>();
+        for (int num:nums){
+            map.put(num,map.getOrDefault(num,0)+1);
+        }
+        if (map.get(0)>=3){
+            List<Integer> list=new ArrayList<>();
+            list.add(0);
+            list.add(0);
+            list.add(0);
+            res.add(list);
+        }
+        for (int i:map.keySet()){
+            for (int j:map.keySet()){
+                if (i!=j){
+                    map.put(i,map.get(i)-1);
+                    map.put(j,map.get(j)-1);
+                    int temp=0-(i+j);
+                    if (map.get(temp)!=null&&map.get(temp)>0){
+                        List<Integer> list=new ArrayList<>();
+                        list.add(i);
+                        list.add(j);
+                        list.add(temp);
+                        res.add(list);
+                    }
+                    map.put(i,map.get(i)+1);
+                    map.put(j,map.get(j)+1);
+                }
+            }
+        }
+        return res;
     }
 
     public static void main(String[] args) {

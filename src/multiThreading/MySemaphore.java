@@ -6,7 +6,7 @@ import java.util.concurrent.Semaphore;
 
 /**
  * @Author ROKG
- * @Description
+ * @Description Semaphore  常用于限制获取某种资源的线程数量,两种模式公平与非公平，基于AQS
  * @Date: Created in 下午8:43 2018/5/8
  * @Modified By:
  */

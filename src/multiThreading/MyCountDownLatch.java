@@ -4,7 +4,8 @@ import java.util.concurrent.CountDownLatch;
 
 /**
  * @Author ROKG
- * @Description CountDownLatch 只允许指定参数个线程执行，后续调用await()的线程会阻塞直到前面的线程执行完毕
+ * @Description CountDownLatch 只允许指定参数个线程执行，后续调用await()的线程会阻塞直到前面的线程执行完毕，count计数降为0后，解除阻塞
+ * 应用场景：一个任务，要等待其他很多个任务执行完毕之后才能执行
  * @Date: Created in 下午8:43 2018/5/8
  * @Modified By:
  */

@@ -5,7 +5,8 @@ import java.util.concurrent.CyclicBarrier;
 
 /**
  * @Author ROKG
- * @Description CyclicBarrier,当等待线程数达到指定参数时，解除阻塞
+ * @Description CyclicBarrier,当等待线程数达到指定参数时，解除阻塞，可重用
+ * 应用场景：一组线程等待至某个状态之后再全部同时执行
  * @Date: Created in 下午8:43 2018/5/8
  * @Modified By:
  */
