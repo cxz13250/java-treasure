@@ -22,4 +22,8 @@ public class LeetCode119 {
         }
         return list;
     }
+
+    public static void main(String[] args) {
+
+    }
 }
