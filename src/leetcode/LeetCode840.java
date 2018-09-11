@@ -59,4 +59,9 @@ public class LeetCode840 {
         }
         return true;
     }
+
+    public static void main(String[] args) {
+        LeetCode840 l=new LeetCode840();
+        System.out.println(l.numMagicSquaresInside(new int[][]{{10,3,5},{1,6,11},{7,9,2}}));
+    }
 }
