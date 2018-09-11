@@ -38,7 +38,7 @@ public class LeetCode51 {
     }
 
     public void generateQueen(int[] queens,int row, int n,List<List<String>> lists){
-        if (row==n){
+        if (row==n){                 // 全放满进入结果集
             List<String> list=new ArrayList<>();
             for (int i=0;i<n;i++){
                 String s="";
@@ -52,9 +52,10 @@ public class LeetCode51 {
                 list.add(s);
             }
             lists.add(list);
+            return;
         }
         for (int i=0;i<n;i++){  //i表示列
-            if (isValid(queens,row,i)){
+            if (isValid(queens,row,i)){  //检验row行i列是否能放皇后
                 queens[row]=i;
                 generateQueen(queens,row+1,n,lists);
             }
