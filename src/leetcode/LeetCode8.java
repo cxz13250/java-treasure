@@ -9,7 +9,7 @@ package leetcode;
 public class LeetCode8 {
 
     public static int myAtoi(String str) {
-        if (str == null || str.length() == 0){
+        if (str == null || str.trim().length() == 0){
             return 0;
         }
         int sign = 1;

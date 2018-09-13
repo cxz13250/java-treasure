@@ -18,6 +18,7 @@ public class LeetCode34 {
                 if (temp==-1){
                     temp=i;
                     result[0]=i;
+                    result[1]=i;
                 }else {
                     result[1]++;
                 }

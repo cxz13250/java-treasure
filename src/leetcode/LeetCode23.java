@@ -79,12 +79,18 @@ public class LeetCode23 {
         }
         Queue<ListNode> queue=new PriorityQueue<>(lists.length,comparator);
         for (ListNode node:lists){
+            if(node==null){
+                continue;
+            }
             queue.offer(node);
         }
         if(queue.isEmpty()){
             return null;
         }
         ListNode node=queue.poll();
+        if (node.next!=null){
+            queue.offer(node.next);
+        }
         ListNode head=node;
         while (!queue.isEmpty()){
             ListNode temp=queue.poll();

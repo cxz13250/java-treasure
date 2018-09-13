@@ -29,10 +29,10 @@ public class LeetCode93 {
             String temp=toString(list);
             result.add(temp);
         }
-        for (int i=cur+1;i<Math.min(s.length(),cur+3);i++){
+        for (int i=cur+1;i<=Math.min(s.length(),cur+3);i++){
             String temp=s.substring(cur,i);
             if (i>cur+1&&s.charAt(cur)=='0'){
-                return;
+                continue;
             }
             if (Integer.valueOf(temp)>255){
                 return;
@@ -45,5 +45,10 @@ public class LeetCode93 {
 
     public String toString(List<String> list){
         return list.get(0)+"."+list.get(1)+"."+list.get(2)+"."+list.get(3);
+    }
+
+    public static void main(String[] args) {
+        LeetCode93 l=new LeetCode93();
+        System.out.println(l.restoreIpAddresses("10001"));
     }
 }

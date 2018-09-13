@@ -23,7 +23,7 @@ public class LeetCode13 {
         }
     };
 
-    public static int check(String s){
+    public static int romanToInt(String s){
         char[] cc=s.toCharArray();
         int sum=0;
         int pre=-1;
@@ -41,6 +41,6 @@ public class LeetCode13 {
 
     public static void main(String[] args) {
         String s="IIX";
-        System.out.println(check(s));
+        System.out.println(romanToInt(s));
     }
 }
