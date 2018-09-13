@@ -33,7 +33,7 @@ public class LeetCode28 {
     }
 
     public int[] next(char[] cc){
-        int[] next=new int[cc.length];
+        int[] next=new int[cc.length+1];
         int k=-1;
         int j=0;
         next[j]=k;
