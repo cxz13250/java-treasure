@@ -12,6 +12,7 @@ import java.util.Map;
 public class LeetCode446 {
 
     // 对每个元素i，用一个map来储存所有包含它的等差子序列并且记录每个差值
+    // 这里使用map数组而不是二维数组，原因是diff有可能非常的大
     public static int numberOfArithmeticSlices(int[] A) {
         if (A.length==0){
             return 0;
