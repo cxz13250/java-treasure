@@ -55,6 +55,12 @@ public class LeetCode640 {
                     } else {
                         ratio-=Integer.valueOf(num);
                     }
+                }else {
+                    if (operator=='+'){
+                        ratio++;
+                    } else {
+                        ratio--;
+                    }
                 }
             }else {  //常数
                 int num=Integer.valueOf(temp);

@@ -13,6 +13,7 @@ import java.util.Map;
  */
 public class LeetCode146 {
 
+    // 双向链表和
     class CacheNode{
         CacheNode pre;
         CacheNode next;

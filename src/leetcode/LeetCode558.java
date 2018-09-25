@@ -2,7 +2,7 @@ package leetcode;
 
 /**
  * @Author ROKG
- * @Description
+ * @Description Quad Tree Intersection
  * @Date: Created in 下午9:38 2018/9/12
  * @Modified By:
  */
