@@ -12,39 +12,25 @@ public class LeetCode6 {
         if(numRows==1){
             return s;
         }
-        char[] chars=s.toCharArray();
+        char[] cc=s.toCharArray();
         StringBuilder sb=new StringBuilder();
-        int sum=s.length();
-        int col=(s.length()/(2*numRows-2))*2+2;
-        int[][] arr=new int[numRows][col];
-        int temp=1;
-        for(int i=0;i<col;i++){
-            if(i%2==0){
-                for(int j=0;j<numRows;j++){
-                    if(temp<=sum){
-                        arr[j][i]=temp;
-                        temp++;
-                    }else {
-                        break;
-                    }
-                }
-            }else {
-                for(int j=numRows-2;j>=1;j--){
-                    if(temp<=sum){
-                        arr[j][i]=temp;
-                        temp++;
-                    }else {
-                        break;
-                    }
+        for(int i=0;i<cc.length;i+=2*numRows-2){
+            sb.append(cc[i]);
+        }
+        for(int i=1;i<numRows-1;i++){
+            int j=i;
+            while(j<cc.length){
+                sb.append(cc[j]);
+                // 第i行，跨越step为2*(numRows-i)-2
+                j+=2*(numRows-i)-2;
+                if(j<cc.length){
+                    sb.append(cc[j]);
+                    j+=2*i;
                 }
             }
         }
-        for(int i=0;i<numRows;i++){
-            for(int j=0;j<col;j++){
-                if(arr[i][j]!=0){
-                    sb.append(chars[arr[i][j]-1]);
-                }
-            }
+        for(int i=numRows-1;i<cc.length;i+=2*numRows-2){
+            sb.append(cc[i]);
         }
         return sb.toString();
     }
