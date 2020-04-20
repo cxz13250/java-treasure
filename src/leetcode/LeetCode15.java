@@ -12,42 +12,40 @@ import java.util.stream.Collectors;
 public class LeetCode15 {
 
     public static List<List<Integer>> threeSum(int[] nums) {
-        List<List<Integer>> ins=new ArrayList<>();
         Arrays.sort(nums);
-
+        List<List<Integer>> result = new ArrayList<>();
         for(int i=0;i<nums.length-2;i++){
-            while (i>1&&nums[i]==nums[i-1]&&i<nums.length-2){
-                i++;
+            if(nums[i]>0){
+                break;
             }
-            int j=i+1;
-            int k=nums.length-1;
-            while (j<k) {
-                int a = nums[i];
-                int b = nums[j];
-                int c = nums[k];
-                int sum = a + b + c;
-                if (sum == 0) {
-                    List<Integer> temp = new ArrayList<>();
-                    temp.add(a);
-                    temp.add(b);
-                    temp.add(c);
-                    ins.add(temp);
-                    j++;
-                    k--;
-                    while (j<k&&nums[k]==nums[k+1]){
-                        k--;
+            if(i == 0 || (i>0&&nums[i]!=nums[i-1])){
+                int l = i+1,r=nums.length-1,sum=0-nums[i];
+                while(l<r){
+                    if(nums[l]+ nums[r]==0-nums[i]){
+                        result.add(Arrays.asList(nums[i],nums[l],nums[r]));
+                        while(l<r&&nums[l]==nums[l+1]){
+                            l++;
+                        }
+                        while(l<r&&nums[r]==nums[r-1]){
+                            r--;
+                        }
+                        l++;
+                        r--;
+                    }else if(nums[l]+ nums[r]<0-nums[i]){
+                        while(l<r&&nums[l]==nums[l+1]){
+                            l++;
+                        }
+                        l++;
+                    }else{
+                        while(l<r&&nums[r]==nums[r-1]){
+                            r--;
+                        }
+                        r--;
                     }
-                    while (j<k&&nums[j]==nums[j-1]){
-                        j++;
-                    }
-                } else if (sum > 0) {
-                    k--;
-                } else {
-                    j++;
                 }
             }
         }
-        return ins.stream().distinct().collect(Collectors.toList());
+        return result;
     }
 
     public static List<List<Integer>> threeSum2(int[] nums) {
