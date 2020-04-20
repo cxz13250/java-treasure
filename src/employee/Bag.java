@@ -25,7 +25,7 @@ public class Bag {
         int n = weight.length;
         int[] w = new int[n + 1];
         int[] v = new int[n + 1];
-        int[][] G = new int[n + 1][c + 1];
+        int[][] G = new int[n + 1][c + 1];  // G[i][j] 表示前i个物品放入容量为v的背包时总价值
         for (int i = 1; i < n + 1; i++) {
             w[i] = weight[i - 1];
             v[i] = value[i - 1];
