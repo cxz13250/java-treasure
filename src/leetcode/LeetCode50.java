@@ -14,8 +14,8 @@ public class LeetCode50 {
         }
         if (n<0){
             //当n为-2^31-1时，取反会越界
-            if (n==Integer.MAX_VALUE){
-                return 1.0/myPow(x,Integer.MAX_VALUE);
+            if (n==Integer.MIN_VALUE){
+                return 1.0/myPow(x,Integer.MAX_VALUE)/x;
             }else {
                 return 1.0/myPow(x,-n);
             }
