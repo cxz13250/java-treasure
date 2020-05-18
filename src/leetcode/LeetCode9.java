@@ -9,6 +9,20 @@ package leetcode;
 public class LeetCode9 {
 
     public static boolean isPalindrome(int x){
+        if(x < 0){
+            return false;
+        }
+        int rem = 0,y = 0;
+        int tmp = x;
+        while (tmp !=0){
+            rem = tmp % 10;
+            y = y * 10 + rem;
+            tmp = tmp / 10;
+        }
+        return x == y;
+    }
+
+    public static boolean isPalindrome2(int x){
         String s=String.valueOf(x);
         int temp=s.length()/2;
         if(s.length()%2==0){
@@ -29,8 +43,14 @@ public class LeetCode9 {
         return true;
     }
 
+    public static boolean isPalindrom3(int x){
+        String s=String.valueOf(x);
+        StringBuilder sb = new StringBuilder(s);
+        return s.equals(sb.reverse().toString());
+    }
+
     public static void main(String[] args) {
-        int x=10;
+        int x=121;
         System.out.println(isPalindrome(x));
     }
 }

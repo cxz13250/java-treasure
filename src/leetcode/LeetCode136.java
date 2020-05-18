@@ -11,17 +11,11 @@ import java.util.Map;
  */
 public class LeetCode136 {
 
+    // 异或运算，a ^ a =0, a ^ b ^ c = a ^ c ^ b
     public int singleNumber(int[] nums) {
-        Map<Integer,Integer> map=new HashMap<>();
-        for (int i=0;i<nums.length;i++){
-            map.put(nums[i],map.containsKey(nums[i])?map.get(nums[i])+1:1);
-        }
-        int result=0;
-        for (Integer i:map.keySet()){
-            if (map.get(i)==1){
-                result=i;
-                break;
-            }
+        int result = 0;
+        for (int i:nums){
+            result = result ^ i;
         }
         return result;
     }

@@ -37,6 +37,7 @@ public class LeetCode152 {
             result=Math.max(max[i],result);
         }
         return result;
+
     }
 
     public static void main(String[] args) {

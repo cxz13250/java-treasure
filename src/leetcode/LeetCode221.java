@@ -17,6 +17,7 @@ public class LeetCode221 {
         if (n==0){
             return 0;
         }
+        // 记录以i,j点作为右下角的正方形最长边长
         int[][] dp=new int[m][n];
         for (int i=0;i<n;i++){
             dp[0][i]=matrix[0][i]-'0';

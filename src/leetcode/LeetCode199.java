@@ -1,9 +1,6 @@
 package leetcode;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @Author ROKG
@@ -20,23 +17,45 @@ public class LeetCode199 {
         TreeNode(int x) { val = x; }
     }
 
-    Set<Integer> heights=new HashSet<>();
-
+    List<Integer> result = new ArrayList<>();
     public List<Integer> rightSideView(TreeNode root) {
-        List<Integer> list=new ArrayList<>();
-        check(list,root,0);
-        return list;
+        check(root, 0);
+        return result;
     }
 
-    public void check(List<Integer> result,TreeNode node, int height){
-        if (node==null){
+    public void check(TreeNode root, int i){
+        if(root == null){
             return;
         }
-        if (!heights.contains(height)){
-            result.add(node.val);
-            heights.add(height);
+        if(result.size()==i){
+            result.add(root.val);
         }
-        check(result,node.right,height+1);
-        check(result,node.left,height+1);
+        check(root.right, i+1);
+        check(root.left, i+1);
+    }
+
+    // 层序遍历
+    public List<Integer> rightSideView2(TreeNode root) {
+        Queue<Integer> flag = new LinkedList<>();
+        Queue<TreeNode> treeNodes = new LinkedList<>();
+        treeNodes.add(root);
+        flag.add(0);
+        List<Integer> result = new ArrayList<>();
+        while (!treeNodes.isEmpty()){
+            TreeNode node = treeNodes.poll();
+            int i = flag.poll();
+            if(node.right != null) {
+                treeNodes.add(node.right);
+                flag.add(i+1);
+            }
+            if(node.left != null) {
+                treeNodes.add(node.left);
+                flag.add(i+1);
+            }
+            if (result.size()==i){
+                result.add(node.val);
+            }
+        }
+        return result;
     }
 }
