@@ -22,6 +22,21 @@ public class LeetCode45 {
         return sum;
     }
 
+    public int jump2(int[] nums) {
+        int start =0,end =0;
+        int next=0;
+        int res=0;
+        while(end < nums.length - 1){
+            for(int i= start;i<=end;i++){
+                next = Math.max(next, nums[i]+i);
+            }
+            start = end + 1;
+            end =next;
+            res ++;
+        }
+        return res;
+    }
+
     public static void main(String[] args) {
         int a[]={2,3,1,1,4};
         System.out.println(jump(a));
