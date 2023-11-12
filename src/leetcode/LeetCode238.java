@@ -8,6 +8,13 @@ package leetcode;
  */
 public class LeetCode238 {
 
+    /**
+     * 思路一：累乘除以nums[i]
+     * 思路二：两个数组分别记录前缀累积和后缀累积
+     * 思路三：result[i]记录i-1的累积，反向遍历记录i+1到末尾的累积
+     * @param nums
+     * @return
+     */
     public int[] productExceptSelf(int[] nums) {
         int[] result=new int[nums.length];
         result[0]=1;

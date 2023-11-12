@@ -8,21 +8,25 @@ package leetcode;
  */
 public class LeetCode152 {
 
-    //O(n^2)
+    //O(n)
     public static int maxProduct(int[] nums) {
         if(nums.length==1){
             return nums[0];
         }
-        int max=0;
+        int max, min;  // 到i-1为止的最大连续乘积和最小乘积
+        int result = Integer.MIN_VALUE;
+        max = min =1;
         for(int i=0;i<nums.length;i++){
-            int temp=nums[i];
-            max=Math.max(temp,max);
-            for(int j=i+1;j<nums.length;j++){
-                temp*=nums[j];
-                max=Math.max(temp,max);
+            if (nums[i]<0){  // 如果nums[i]为负数，那最大和最小就需要交换
+               int temp = max;
+               max = min;
+               min = temp;
             }
+            max = Math.max(nums[i], nums[i]*max);
+            min = Math.min(nums[i], nums[i]*min);
+            result=Math.max(max,result);
         }
-        return max;
+        return result;
     }
 
     //O(n)
@@ -41,8 +45,8 @@ public class LeetCode152 {
     }
 
     public static void main(String[] args) {
-        int nums[]={2,3,-2,4};
-        System.out.println(maxProduct2(nums));
+        int nums[]={-4,-3,-2};
+        System.out.println(maxProduct(nums));
     }
 }
 

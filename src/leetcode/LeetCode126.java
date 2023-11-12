@@ -68,9 +68,7 @@ public class LeetCode126 {
                     dfs(current,endWord,wordList,newPath,res);
                 }
                 tmpChars[i] = mychar;
-
             }
-
         }
     }
     public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {

@@ -21,33 +21,23 @@ public class LeetCode109 {
         ListNode(int x) { val = x; }
     }
 
-    ListNode cur;
-
     public TreeNode sortedListToBST(ListNode head) {
-        if (head==null){
-            return null;
+        if(head == null) return null;
+        else if(head.next == null) return new TreeNode(head.val);
+        ListNode pre = head;
+        ListNode p = pre.next;
+        ListNode q = p.next;
+        //找到链表的中点p
+        while(q!=null && q.next!=null){
+            pre = pre.next;
+            p = pre.next;
+            q = q.next.next;
         }
-        cur=head;
-        ListNode node=head;
-        int length=0;
-        while (node!=null){
-            length++;
-            node=node.next;
-        }
-        return build(0,length-1);
-    }
-
-    public TreeNode build(int left,int right){
-        if (left>right){
-            return null;
-        }
-        int mid=left+(right-left)/2;
-        TreeNode lnode=build(left,mid-1);
-        TreeNode root=new TreeNode(cur.val);
-        cur=cur.next;
-        root.left=lnode;
-        TreeNode rnode=build(mid+1,right);
-        root.right=rnode;
+        //将中点左边的链表分开
+        pre.next = null;
+        TreeNode root = new TreeNode(p.val);
+        root.left = sortedListToBST(head);
+        root.right = sortedListToBST(p.next);
         return root;
     }
 }

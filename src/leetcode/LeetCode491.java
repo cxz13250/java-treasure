@@ -13,8 +13,6 @@ public class LeetCode491 {
     List<List<Integer>> result=new ArrayList<>();
 
     public List<List<Integer>> findSubsequences(int[] nums) {
-        Arrays.sort(nums);
-
         List<Integer> list=new ArrayList<>();
         check(list,0,nums);
         return result;

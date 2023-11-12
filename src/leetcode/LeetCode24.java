@@ -15,28 +15,27 @@ public class LeetCode24 {
     }
 
     public ListNode swapPairs(ListNode head) {
-        if(head==null){
-            return null;
-        }
-        if(head.next==null){
+        if(head == null || head.next == null){
             return head;
         }
-        ListNode b=head;
-        ListNode c=b.next;
-        ListNode a=new ListNode(-1);
-        head=a;
-        while(b!=null&&c!=null){
-            a.next=c;
-            b.next=c.next;
-            c.next=b;
-            a=b;
-            b=b.next;
-            if(b==null){
-                break;
-            }
-            c=b.next;
+        ListNode pre = head;
+        ListNode pro = pre.next;
+        ListNode next = pro.next;
+        ListNode tail = new ListNode(-1);
+        ListNode result = pro;
+        while(next!=null && next.next!=null){
+            tail.next = pro;
+            pro.next = pre;
+            pre.next = next;
+            tail = pre;
+            pre = next;
+            pro = pre.next;
+            next = pro.next;
         }
-        return head.next;
+        tail.next = pro;
+        pro.next = pre;
+        pre.next = next;
+        return result;
     }
 
     public static void main(String[] args) {

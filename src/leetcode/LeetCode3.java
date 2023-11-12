@@ -37,5 +37,7 @@ public class LeetCode3 {
         String s2="abcabcbb";
         System.out.println(lengthOfLongestSubstring(s1));
         System.out.println(lengthOfLongestSubstring(s2));
+        System.out.println(lengthOfLongestSubstring("tmmzuxt"));
+
     }
 }

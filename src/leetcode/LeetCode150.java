@@ -20,12 +20,12 @@ public class LeetCode150 {
             if (isOperator(s)){
                 Integer s1=stack.pop();
                 Integer s2=stack.pop();
-                stack.push((calculate(s1, s2, s)));
+                stack.push((calculate(s2, s1, s)));
             }else {
                 stack.push(Integer.valueOf(s));
             }
         }
-        return Integer.valueOf(stack.peek());
+        return stack.peek();
     }
 
     private boolean isOperator(String s){
@@ -46,5 +46,7 @@ public class LeetCode150 {
         }
     }
 
-
+    public static void main(String[] args) {
+        System.out.println(new LeetCode150().evalRPN(new String[]{"4","13","5","/","+"}));
+    }
 }

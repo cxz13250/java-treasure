@@ -9,29 +9,42 @@ package leetcode;
  */
 public class LeetCode647 {
 
+    int sum = 0;
     public int countSubstrings(String s) {
-        if (s==null || s.length()==0){
-            return 0;
+        for(int i=0;i<s.length();i++){
+            count(s,i,i);
+            count(s,i,i+1);
         }
-        int count=0;
+        return sum;
+    }
+    public void count(String s,int left,int right){
+        while(left>=0&&right<s.length()&&s.charAt(left)==s.charAt(right)){
+            left--;
+            right++;
+            sum++;
+        }
+    }
+
+    /**
+     * 动态规划
+     * @param s
+     * @return
+     */
+    public int countSubstrings2(String s) {
+        int[] dp = new int[s.length()];
+        int cnt=0;
         for (int i=0;i<s.length();i++){
-            for (int j=i;j<s.length();j++){
-                if (checkPalindromeExpand(s,i,j)){
-                    count++;
+            dp[i]=1;
+            cnt++;
+            for (int j=0;j<i;j++){
+                if (s.charAt(i)==s.charAt(j)&&dp[j+1]==1){
+                    dp[j]=1;
+                    cnt++;
+                }else {
+                    dp[j]=0;
                 }
             }
         }
-        return count;
-    }
-
-    public boolean checkPalindromeExpand(String s, int low, int high) {
-        while (low < high) {
-            if (s.charAt(low) != s.charAt(high)) {
-                return false;
-            }
-            low++;
-            high--;
-        }
-        return true;
+        return cnt;
     }
 }

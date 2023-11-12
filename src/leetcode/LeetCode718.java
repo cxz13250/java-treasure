@@ -8,6 +8,7 @@ package leetcode;
  */
 public class LeetCode718 {
 
+    // dp[i][j]代表以A[i-1]与B[j-1]结尾的公共字串的长度
     public int findLength(int[] A, int[] B) {
          int[][] dp=new int[A.length+1][B.length+1];
          int result=0;

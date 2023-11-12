@@ -14,7 +14,7 @@ public class LeetCode76 {
     public static String minWindow(String s, String t) {
         Map<Character,Integer> map=new HashMap<>();
         for (char c:t.toCharArray()){
-            map.put(c,map.containsKey(c)?map.get(c)+1:1);
+            map.put(c,map.getOrDefault(c, 0)+1);
         }
         int count=t.length();
         int min=Integer.MAX_VALUE;
@@ -44,7 +44,7 @@ public class LeetCode76 {
                 left++;
             }
         }
-        return min==Integer.MAX_VALUE?"":s.substring(start,end);
+        return min==Integer.MAX_VALUE?"":s.substring(start,end+1);
     }
 
     public static void main(String[] args) {

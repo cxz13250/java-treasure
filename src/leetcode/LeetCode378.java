@@ -13,61 +13,62 @@ import java.util.PriorityQueue;
 public class LeetCode378 {
 
     public int kthSmallest(int[][] matrix, int k) {
-        if (matrix.length == 0 || matrix[0].length == 0){
+        if (matrix.length == 0 || matrix[0].length == 0) {
             return -1;
         }
-        PriorityQueue<Integer> queue=new PriorityQueue<>(new Comparator<Integer>() {
+        PriorityQueue<Integer> queue = new PriorityQueue<>(new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
-                return o1-o2;
+                return o1 - o2;
             }
         });
-        for (int i=0;i<matrix.length;i++){
-            for (int j=0;j<matrix[0].length;j++){
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
                 queue.offer(matrix[i][j]);
             }
         }
-        int count=0;
-        int result=-1;
-        while (count<k){
-            result=queue.poll();
+        int count = 0;
+        int result = -1;
+        while (count < k) {
+            result = queue.poll();
             count++;
         }
         return result;
     }
 
     //优化复杂度
-    class Number{
+    class Number {
         int row;
         int col;
         int val;
-        Number(int row, int col, int val){
-            this.row=row;
-            this.col=col;
-            this.val=val;
+
+        Number(int row, int col, int val) {
+            this.row = row;
+            this.col = col;
+            this.val = val;
         }
     }
 
     public int kthSmallest2(int[][] matrix, int k) {
-        if (matrix.length == 0 || matrix[0].length == 0){
+        if (matrix.length == 0 || matrix[0].length == 0) {
             return -1;
         }
-        PriorityQueue<Number> queue=new PriorityQueue<>(new Comparator<Number>() {
+        PriorityQueue<Number> queue = new PriorityQueue<>(new Comparator<Number>() {
             @Override
             public int compare(Number o1, Number o2) {
-                return o1.val-o2.val;
+                return o1.val - o2.val;
             }
         });
-        for (int i=0;i<matrix.length;i++){
-            queue.offer(new Number(i,0,matrix[i][0]));
+        for (int i = 0; i < matrix.length; i++) {
+            queue.offer(new Number(i, 0, matrix[i][0]));
         }
-        int count=0;
-        int result=-1;
-        while (count<k){
-            Number n=queue.poll();
-            result=n.val;
-            if (n.col<matrix[0].length){
-                queue.offer(new Number(n.row,n.col+1,matrix[n.row][n.col+1]));
+        int count = 0;
+        int result = -1;
+        while (count < k) {
+            Number n = queue.poll();
+            result = n.val;
+            if (n.col < matrix[0].length - 1) {
+                queue.offer(new Number(n.row, n.col + 1, matrix[n.row][n.col + 1]));
             }
             count++;
         }
